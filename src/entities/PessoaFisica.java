@@ -22,12 +22,22 @@ public class PessoaFisica extends Pessoa {
 	}
 
 	@Override
-	public double taxesPay() {
+	public final double taxesPay() {
 		double re = 0;
-		if(getAnnuaIncome() < 20000.00 && getHealthExpenditures() > 0.0){
-			re = getAnnuaIncome();//falta termina esse metodo
+		if(getAnnuaIncome() < 20000.00 && getHealthExpenditures() != null){
+			re = (getAnnuaIncome() * 0.15) - (getHealthExpenditures() * 0.50);
 		}else {
-			
+			if(getAnnuaIncome() >= 20000.00 && getHealthExpenditures() != null) {
+				re = (getAnnuaIncome() * 0.25) - (getHealthExpenditures() * 0.50);
+			}else {
+				if(getAnnuaIncome() >= 20000.00) {
+					re = (getAnnuaIncome() * 0.25);
+				}else {
+					if(getAnnuaIncome() < 20000.00) {
+						re = (getAnnuaIncome() * 0.15);
+					}
+				}
+		    }	
 		}
 		return re;
 	}
