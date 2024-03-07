@@ -24,10 +24,10 @@ public class PessoaFisica extends Pessoa {
 	@Override
 	public final double taxesPay() {
 		double re = 0;
-		if(getAnnuaIncome() < 20000.00 && getHealthExpenditures() != null){
+		if(getAnnuaIncome() < 20000.00 && getHealthExpenditures() != 0.0){
 			re = (getAnnuaIncome() * 0.15) - (getHealthExpenditures() * 0.50);
 		}else {
-			if(getAnnuaIncome() >= 20000.00 && getHealthExpenditures() != null) {
+			if(getAnnuaIncome() >= 20000.00 && getHealthExpenditures() != 0.0) {
 				re = (getAnnuaIncome() * 0.25) - (getHealthExpenditures() * 0.50);
 			}else {
 				if(getAnnuaIncome() >= 20000.00) {
